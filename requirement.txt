@@ -1,0 +1,9 @@
+flask
+sqlite3
+
+import libraries
+numpy
+pandas
+sklearn
+joblib
+os
