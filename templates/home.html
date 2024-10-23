@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaptopPredictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: rgba(147, 68, 121, 0.94);
+            color: #333;
+        }
+
+        header {
+            background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('static/laptop-background.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5em;
+        }
+
+        header p {
+            font-size: 1.5rem;
+        }
+
+        nav {
+            background-color: #1f2937;
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #f4f4f4;
+        }
+        .navbar-brand:hover{
+            color: aqua;
+        }
+
+        .navbar-nav .nav-link {
+            color: #f4f4f4;
+            margin: 0 1em;
+            transition: color 0.3s ease;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: aqua;
+        }
+
+        footer {
+            background-color: #1f2937;
+            color: #f4f4f4;
+            text-align: center;
+            padding: 1.5em 0;
+            margin-top: 2em;
+        }
+
+        .intro {
+            text-align: center;
+            margin: 3em 0;
+            background: #07374a;
+            color: white;
+            padding: 2em;
+        }
+
+        .intro h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5em;
+        }
+
+        .intro p {
+            font-size: 1.3rem;
+            color: #fff;
+        }
+
+        .intro .btn {
+            background-color: #333;
+            color: white;
+            padding: 0.8em 2em;
+            font-size: 1.1rem;
+            margin-top: 1em;
+            transition: background-color 0.3s ease;
+        }
+
+        .intro .btn:hover {
+            background-color: #555;
+        }
+
+        .amazon-laptops {
+            margin: 2em auto;
+            max-width: 1200px;
+        }
+
+        .laptop-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1em;
+        }
+
+        .laptop-item {
+            border: 1px solid #ddd;
+            padding: 1em;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .laptop-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .laptop-item img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .laptop-item h3 {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about {
+            background-color: #07374a;
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        .about h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5em;
+            color: white;
+        }
+
+        .about p {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            color: white;
+            line-height: 1.8;
+        }
+
+        .contact {
+            background-color:rgba(147, 68, 121, 0.94);
+            color: white;
+            padding: 4em 0;
+            text-align: center;
+        }
+
+        .contact h2 {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 1.5em;
+        }
+
+        .contact p {
+            font-size: 1.2rem;
+            margin-bottom: 2em;
+        }
+
+        .contact .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 2em;
+        }
+
+        .contact .social-icons a {
+            color: white;
+            font-size: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .contact .social-icons a:hover {
+            color: aqua;
+        }
+
+        @media (max-width: 800px) {
+            .laptop-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar-nav .nav-link {
+                margin: 0.5em 0;
+            }
+
+            .laptop-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .intro h2 {
+                font-size: 2.2rem;
+            }
+
+            .about h2,
+            .contact h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    
+
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">LaptopWorld</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="intro">
+            <h2>Get the Perfect Laptop for You</h2>
+            <p>Utilize our cutting-edge AI and data analysis tools to discover the perfect laptop that meets your specific needs.</p>
+            <a class="btn btn-blue" href="/project" role="button">Get Your Laptop!</a>
+        </section>
+
+        <section class="amazon-laptops">
+            <h2 class="section-title">Top Rated Laptops on Amazon</h2>
+            <div class="laptop-grid">
+                <div class="laptop-item">
+                    <a href="https://www.amazon.in/HP-i3-1215U-Anti-Glare-Speakers-15s-fq5328TU/dp/B0CYQ8DS2B/ref=sxin_15_pa_sp_search_thematic_sspa?adgrpid=1316117763105971&content-id=amzn1.sym.bc795e26-5dd9-4d55-a433-6dcc07786424%3Aamzn1.sym.bc795e26-5dd9-4d55-a433-6dcc07786424&cv_ct_cx=top+rated+laptops+on+amazon&dib=eyJ2IjoiMSJ9.h7q6_WlCBsj4dHqp82TEwrYXX8Z5tFhUvXMth8AGi6_Sccv9JJAgu8TFKDXbFLXO.90lHGKhCk50hZ-lLfXwlZDeVshV0kaNreJmMVQhurJw&dib_tag=se&hvadid=82257587638583&hvbmt=be&hvdev=c&hvlocphy=149025&hvnetw=o&hvqmt=e&hvtargid=kwd-82258341953354%3Aloc-90&hydadcr=25624_2800671&keywords=top+rated+laptops+on+amazon&pd_rd_i=B0CYQ8DS2B&pd_rd_r=e9d482e8-eceb-4888-aad5-0bb46aa9f653&pd_rd_w=vblaC&pd_rd_wg=BmY7s&pf_rd_p=bc795e26-5dd9-4d55-a433-6dcc07786424&pf_rd_r=5QZ2M61M4VZ8A0PBJVZZ&qid=1723540749&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-1-ced4eeeb-b190-41d6-902a-1ecb3fb8b7c4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" target="_blank">
+                        <img src="static\71A2rOksZtL._SL1500_.jpg" alt="HP Laptop 15,12th Gen Intel Core i3-1215U">
+                        <h3 style="margin-top: auto;">HP Laptop 15,12th Gen Intel Core i3-1215U,15.6 inch(39.6 cm),FHD,Anti-Glare,8 GB DDR4,1 TB SSD,Windows 11,MSO,Dual Speakers,1.69 kg,Natural Silver,15s-fq5328TU</h3>
+                    </a>
+                </div>
+                
+                <div class="laptop-item">
+                    <a href="https://www.amazon.in/Acer-Graphics-Win11Home-AL15G-52-39-62cm/dp/B0D32TY16C/ref=sxin_15_pa_sp_search_thematic_sspa?adgrpid=1316117763105971&content-id=amzn1.sym.bc795e26-5dd9-4d55-a433-6dcc07786424%3Aamzn1.sym.bc795e26-5dd9-4d55-a433-6dcc07786424&cv_ct_cx=top+rated+laptops+on+amazon&dib=eyJ2IjoiMSJ9.h7q6_WlCBsj4dHqp82TEwrYXX8Z5tFhUvXMth8AGi6_Sccv9JJAgu8TFKDXbFLXO.90lHGKhCk50hZ-lLfXwlZDeVshV0kaNreJmMVQhurJw&dib_tag=se&hvadid=82257587638583&hvbmt=be&hvdev=c&hvlocphy=149025&hvnetw=o&hvqmt=e&hvtargid=kwd-82258341953354%3Aloc-90&hydadcr=25624_2800671&keywords=top+rated+laptops+on+amazon&pd_rd_i=B0D32TY16C&pd_rd_r=e9d482e8-eceb-4888-aad5-0bb46aa9f653&pd_rd_w=vblaC&pd_rd_wg=BmY7s&pf_rd_p=bc795e26-5dd9-4d55-a433-6dcc07786424&pf_rd_r=5QZ2M61M4VZ8A0PBJVZZ&qid=1723540749&sbo=RZvfv%2F%2FHxDF%2BO5021pAnSA%3D%3D&sr=1-2-ced4eeeb-b190-41d6-902a-1ecb3fb8b7c4-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9zZWFyY2hfdGhlbWF0aWM&psc=1" target="_blank">
+                        <img src="static\610pMwN1z6L._SL1080_.jpg" alt="Acer ALG 12th Gen Intel Core i5 Gaming Laptop">
+                        <h3>Acer ALG 12th Gen Intel Core i5 Gaming Laptop"</h3>
+                    </a>
+                
+                </div>
+                <div class="laptop-item">
+                    <a href="https://www.amazon.in/Apple-MacBook-Chip-13-inch-256GB/dp/B08N5W4NNB/ref=zg_bs_g_1375424031_d_sccl_3/262-9474223-2511441?psc=1" target="_blank">
+                        <img src="static\71jG+e7roXL._SL1500_.jpg" alt="Apple MacBook Air Laptop M1 chip">
+                        <h3>Apple MacBook Air Laptop M1 chip, 13.3-inch/33.74 cm Retina Display, 8GB RAM, 256GB SSD Storage, Backlit Keyboard, FaceTime HD Camera, Touch ID. Works with iPhone/iPad; Space Grey</h3>
+                    </a>
+                    
+                </div>
+                <div class="laptop-item">
+                    <a href="https://www.amazon.in/ASUS-Vivobook-i5-12500H-Laptop-X1502ZA-EJ541WS/dp/B0C7H6SSC8/ref=zg_bs_g_1375424031_d_sccl_5/262-9474223-2511441?psc=1" target="_blank">
+                        <img src="static\712nnWmCgXL._SX679_.jpg" alt="ASUS Vivobook 15" style="margin:40px;width:100%">
+                        <h3>ASUS Vivobook 15 Thin and Light Laptop</h3>
+                        </a>
+                    </div>
+                    <div class="laptop-item">
+                    <a href="https://www.amazon.in/Dell-i3-1215U-Graphic-Spill-Resistant-Keyboard/dp/B0BQJ68HHC/ref=zg_bs_g_1375424031_d_sccl_6/262-9474223-2511441?psc=1" target="_blank">
+                        <img src="static\71TcPkUibVL._SY450_.jpg" alt="Dell 15 Thin & Light Laptop" style="margin:100px;width: 70%;">
+                        <h3>Dell 15 Thin & Light Laptop</h3>
+                        </a>
+                    </div>
+                    <div class="laptop-item" style="display: flex; flex-direction: column; align-items: center;">
+                        <img src="static\81FyIdtMK+L._SL1500_.jpg" alt="Lenovo ThinkPad P50 Intel Core i7-6820HQ" style="margin: 130px; width: 200%;">
+                        <a href="https://example.com" target="_blank">
+                            <h3 style="margin-top: 0;">Lenovo ThinkPad P50 Intel</h3>
+                        </a>
+                    </div>
+                    
+                     
+                </div>  
+            </div>
+        </section>
+        
+         <section id="about" class="about">
+            <h2>About LaptopWorld</h2>
+            <p>
+                At LaptopWorld, we leverage state-of-the-art machine learning to help you find the ideal laptop tailored to your specific requirements. Our platform is powered by the KMeans clustering algorithm, which allows us to categorize and analyze laptops based on essential specifications and user preferences. We utilize Pandas and Numpy for efficient data handling, while Matplotlib and Seaborn create insightful visualizations that clarify the data. Our preprocessing includes scaling techniques such as MinMaxScaler, RobustScaler, StandardScaler, and Normalizer to ensure the data is optimally prepared for modeling. The silhouette score validates the quality of our clusters, guaranteeing precise recommendations. With joblib, our models are saved and updated effortlessly, making LaptopOracle a dependable tool for your laptop selection process.
+            </p>
+        </section>
+
+        <section id="contact" class="contact">
+            <h2>Contact Me</h2>
+            <p class="mail">
+                Get in touch with me <i class="fas fa-arrow-right"></i> officialnitesh14@gmail.com
+              </p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/nitesh-pandey-a50463278" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/nitesh-kumar-pandey" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://twitter.com/__nitesh_1" target="blank"><i class="fab fa-twitter"></i></a>
+                <a href="https://www.instagram.com/__nitesh_1  /" target="blank"><i class="fab fa-instagram"></i></a>
+            
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 LaptopWorld. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
