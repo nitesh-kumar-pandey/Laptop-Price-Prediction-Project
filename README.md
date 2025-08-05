@@ -9,13 +9,13 @@ It's powered by a trained machine learning model and offers a smooth, interactiv
 
 • Predict laptop prices with high accuracy using a trained ML model (`joblib`)<br>
 • User inputs include:<br>
-  - RAM<br>
-  - Weight<br>
-  - Screen type (Touchscreen/IPS)<br>
-  - Brand (Company)<br>
-  - Laptop Type (Gaming, Notebook, etc.)<br>
-  - Operating System<br>
-  - CPU & GPU brands<br>
+  &emsp;- RAM<br>
+  &emsp;- Weight<br>
+  &emsp;- Screen type (Touchscreen/IPS)<br>
+  &emsp;- Brand (Company)<br>
+  &emsp;- Laptop Type (Gaming, Notebook, etc.)<br>
+  &emsp;- Operating System<br>
+  &emsp;- CPU & GPU brands<br>
 • Clean and simple UI built using Flask and Jinja templates<br>
 
 ---
